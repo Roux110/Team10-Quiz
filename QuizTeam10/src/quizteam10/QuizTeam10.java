@@ -47,5 +47,43 @@ public class QuizTeam10 {
         // Code here
     }
     
+    public static void displayConfirmationDel() {
+        // Code here
+    }   
     
+    public static void deleteQuestion() {
+        // Code here
+    }
+    
+    public static void displayNumberOfQuestionsToAnswer() {
+        // Code here
+    }
+    
+    public static void getSettings(){
+        // Code here
+    }
+    
+    public static void sendSettings() {
+        // Code here
+    }
+    
+    public static void getInputForAdding() {
+        // Code here
+    }
+    
+    public static void saveNewQuestion() {
+        // Code here
+    }
+    
+    public static void getUpdates() {
+        // Code here 
+    }
+    
+    public static void validatesLogingDetails() {
+        // Code here
+    }
+    
+    public static void displayErrorMessage() {
+        // Code here 
+    }
 }
