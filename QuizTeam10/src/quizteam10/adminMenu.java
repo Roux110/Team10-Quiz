@@ -104,9 +104,7 @@ public class adminMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
-        new_admin new_admin = new new_admin();
-        new_admin.setVisible(true);
+        
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

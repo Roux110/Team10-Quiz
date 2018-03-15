@@ -14,10 +14,16 @@ public class SetUp extends javax.swing.JFrame {
     /**
      * Creates new form SetUp
      */
+    private String school_name;
+    
     public SetUp() {
         initComponents();
+        school_name = "";
     }
-
+    
+    public SetUp(String sbchool_name) {
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
