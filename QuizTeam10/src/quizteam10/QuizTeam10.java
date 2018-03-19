@@ -1,16 +1,49 @@
 package quizteam10;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class QuizTeam10 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
         // Just testing 2
+<<<<<<< HEAD
        
+=======
+        selectQuestion();
+>>>>>>> 603f35bcc81a872b6481b61474edb0ae4ccb3299
     }
     private String[] tempQuestions;
     
-    public static void selectQuestion(String[] question) {
+    
+    
+    public static void selectQuestion() throws FileNotFoundException {
         // Code here
+           String token1 = "";
+            // create Scanner inFile1
+            Scanner inFile1 = new Scanner(new File("MediumQuestions.txt")).useDelimiter("\n");
+
+            // Original answer used LinkedList, but probably preferable to use ArrayList in most cases
+            // List<String> temps = new LinkedList<String>();
+            List<String> temps = new ArrayList<String>();
+
+            // while loop
+            while (inFile1.hasNext()) {
+              // find next line
+              token1 = inFile1.next();
+              temps.add(token1);
+            }
+            inFile1.close();
+
+            String[] tempsArray = temps.toArray(new String[0]);
+
+            for (String s : tempsArray) {
+              System.out.println(s);
+            }
     }
     
     public static void storeQuestionInTemp(){
