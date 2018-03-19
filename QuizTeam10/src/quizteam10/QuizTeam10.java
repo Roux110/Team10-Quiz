@@ -5,6 +5,7 @@ public class QuizTeam10 {
     public static void main(String[] args) {
         // TODO code application logic here
         // Just testing 2
+       
     }
     private String[] tempQuestions;
     

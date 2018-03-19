@@ -1,4 +1,3 @@
-ID, Question, a,b,c,d, correct
 1, A segment of a track in a mass storage system is called a…. , Pixel, Bit, Keyfield, Flip-flop, Flip-flop
 2, A digital circuit capable of holding a single digit is called a…., Pixel, Address, Sector, Flip-flop, Sector
 3, Which of the following bit patterns (represented in hexadecimal notation) represents a negative number in two’s complement notation? , 55, 7F, A6, 08, A6
@@ -6,8 +5,7 @@ ID, Question, a,b,c,d, correct
 5, A means of compressing images by blurring the boundaries between different colours while maintaining all brightness information, JPEG, MIDI, LZW, GIF, JPEG
 6, Which of the following is the binary representation of 4 5/8?, 110.101, 100.101, 10.011, 100.11, 100.101
 7, A means of encoding text in which each symbol is represented by 16 bits, ISO, UNICODE, ASCII, LZW, UNICODE
-8, What type of class is the class below? 
-:public class HelloWorld{   public static void main (String [] args)   {      System.out.println("Hello World!!");   }} ,A Driver Class, A Driving Class, An automatic class, A stand-alone class, A Driver Class
+8, What type of class is the class below? public class HelloWorld{public static void main (String [] args) {System.out.println("Hello World!!");}}, A Driver Class, A Driving Class, An automatic class, A stand-alone class, A Driver Class
 9, Which of the following bit patterns represents the value 5 in two's complement notation?,11111011, 00000101, 11110011, 00011010, 00000101#
 10, Which of the following is the first fully supported 64-bit operating system?, Windows Vista, Mac, Linux, Windows XP, Linux
 11, Computer Hard Disks were first introduced in 1956 by, Dell, Apple, Microsoft, IBM, IBM

@@ -1,10 +1,9 @@
-ID, Question, a,b,c,d, correct
 1, What is a variable?, A variable is a number, A message input by the user, A location in memory that we use to store data, Message output to the screen, A location in memory that we use to store data
 2, What is an array?, A list of variables, A list of strings, A series of memory locations with names, A grid reference point on a table, A series of memory locations with names
 3, What is an element in an array?, The smallest number an array can hold, The biggest number an array can hold, An element is one value in an array, A group of related numbers, An element is one value in an array
-4, What is a bug?, An error in a program, A way of halting a program that is running, A small insect, An error in a program
-5, What is a syntax error? A spelling error, A mistake in the logic of the program, A spelling or grammatical mistake in the program, A way of halting a program that is running, A spelling or grammatical mistake in the program
-6, What is a web browser? Software used for streaming films over the internet, Software that allows user access to web pages/applications, Software used for sending emails, Software used for downloading plugins, Software that allows user access to webpages/applications 
+4, What is a bug?, An error in a program, A way of halting a program that is running, A small insect, A way to start a program, An error in a program
+5, What is a syntax error?, A spelling error, A mistake in the logic of the program, A spelling or grammatical mistake in the program, A way of halting a program that is running, A spelling or grammatical mistake in the program
+6, What is a web browser?, Software used for streaming films over the internet, Software that allows user access to web pages/applications, Software used for sending emails, Software used for downloading plugins, Software that allows user access to webpages/applications 
 7, Which type of connection is preferable for streaming high-definition video?, Fibre optic, 3G, Coaxial, Dial-up, Fibre optic
 8, How do you know if a website is secure?, When a pop-up tells you the website is secure, When you see a padlock in the top right corner, Websites can’t be secure, when the prefix of the website is https, When the prefix of the website is https
 9, Which command will stop an infinite loop?, Alt-C, Shift-C, Esc, Ctrl-C, Ctrl C
