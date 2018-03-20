@@ -11,11 +11,6 @@ public class QuizTeam10 {
     public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
         // Just testing 2
-<<<<<<< HEAD
-       
-=======
-        selectQuestion();
->>>>>>> 603f35bcc81a872b6481b61474edb0ae4ccb3299
     }
     private String[] tempQuestions;
     
