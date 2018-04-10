@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JComboBox;
 /**
  *
  * @author iryna
@@ -22,7 +23,7 @@ public class questionManipulation extends javax.swing.JFrame {
     private String[] splitQ;
     private Vector<String> questions = new Vector<String>();
     private int counter = -1;
-    private String diffFile = "MediumQuestions.txt";
+    private String diffFile = "EasyQuestions.txt";
     
     public questionManipulation() {
         initComponents();
@@ -36,9 +37,11 @@ public class questionManipulation extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     public void makeList(){
+        questions.clear();
+      
         try {
-          
-             FileReader reader = new FileReader( diffFile );
+           
+            FileReader reader = new FileReader( diffFile );
             BufferedReader in = new BufferedReader(reader);
             String s;
             while((s = in.readLine()) != null){                    
@@ -50,6 +53,9 @@ public class questionManipulation extends javax.swing.JFrame {
          catch( Exception e ) {
             System.out.println( e );
         }
+          for (Object o : questions) {
+      //     System.out.print(o + "@@ ");
+        }
 
     }
 
@@ -59,7 +65,10 @@ public class questionManipulation extends javax.swing.JFrame {
        System.out.println(counter);
        if(counter <= -1){
            counter = questions.size() -1;
-       }     
+       } 
+       if(counter == questions.size()){
+           counter = 0;
+       }
        splitQ = questions.get(counter).split(", ");
        jTextFieldID.setText(splitQ[0]);
        jTextPaneQ.setText(splitQ[1]);
@@ -68,6 +77,7 @@ public class questionManipulation extends javax.swing.JFrame {
        jTextPaneC.setText(splitQ[4]);
        jTextPaneD.setText(splitQ[5]);
        jTextPaneCor.setText(splitQ[6]);
+       System.out.println(splitQ[1]);
     }
     
     
@@ -104,7 +114,9 @@ public class questionManipulation extends javax.swing.JFrame {
         jTextPaneCor = new javax.swing.JTextPane();
         jButtonUpdate = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
-        jButtonUpdate4 = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
+        jComboBoxDiff = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
 
         jScrollPane4.setViewportView(jTextPaneQ3);
 
@@ -200,7 +212,21 @@ public class questionManipulation extends javax.swing.JFrame {
             }
         });
 
-        jButtonUpdate4.setText("Clear");
+        jButtonAdd.setText("Add new");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
+
+        jComboBoxDiff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Easy", "Medium", "Hard" }));
+        jComboBoxDiff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDiffActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Difficulty:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,7 +245,7 @@ public class questionManipulation extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel3)
@@ -255,18 +281,22 @@ public class questionManipulation extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(193, 193, 193)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(83, 83, 83)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(87, 87, 87))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBoxDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButtonUpdate4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,16 +321,22 @@ public class questionManipulation extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonUpdate))
-                        .addGap(21, 21, 21)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonUpdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonAdd)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
+                                        .addGap(23, 23, 23)
                                         .addComponent(jLabel4))
-                                    .addComponent(jLabel3)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(31, 31, 31)
@@ -308,20 +344,22 @@ public class questionManipulation extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
                                 .addComponent(jButtonDelete)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jComboBoxDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jButtonUpdate4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -381,17 +419,18 @@ public class questionManipulation extends javax.swing.JFrame {
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
      if (JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this question?", "WARNING",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            makeList();   
+            
             splitQ[0] = jTextFieldID.getText();
             questions.remove(counter);
             try{
-                FileWriter writer = new FileWriter(diffFile);   
-                PrintWriter outfile = new PrintWriter(writer);
+                FileWriter writerDel = new FileWriter(diffFile);   
+                PrintWriter outfileDel = new PrintWriter(writerDel);
 
                 for(int i = 0; i < questions.size(); i++){
-                    outfile.println(questions.get(i));
+                    System.out.println(questions.size());
+                    outfileDel.println(questions.get(i));
                 }
-                outfile.close();
+                outfileDel.close();
             }
 
             catch ( Exception e ) {
@@ -404,6 +443,47 @@ public class questionManipulation extends javax.swing.JFrame {
     private void jButtonUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdate2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonUpdate2ActionPerformed
+
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+          makeList(); 
+          int nextID = Integer.parseInt((questions.get(questions.size() - 1)).split(", ")[0]) + 1;
+          
+        try {      
+            FileWriter writer = new FileWriter(diffFile, true);   
+            PrintWriter outfile = new PrintWriter(writer);
+            outfile.println(nextID + ", " + " " + ", " + " " + ", " + " " + ", " + " " + ", " + " " + ", " + " ");        
+            outfile.close();
+            
+        }
+        catch ( Exception e ) {
+           System.out.println( e );
+       }
+        
+       
+       makeList(); 
+       counter = -1;
+       nav(questions.size());
+       
+       
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
+    private void jComboBoxDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDiffActionPerformed
+       
+        String value = jComboBoxDiff.getSelectedItem().toString();
+        if(value.equals("Easy")){
+            diffFile = "EasyQuestions.txt"; 
+        }
+        else if(value.equals("Medium")){
+             System.out.println("test");
+            diffFile = "MediumQuestions.txt"; 
+        }
+         else if(value.equals("Hard")){
+            diffFile = "HardQuestions.txt"; 
+        }
+        questions.clear();
+        counter = 0;
+        nav(0);
+    }//GEN-LAST:event_jComboBoxDiffActionPerformed
     
     /**
      * @param args the command line arguments
@@ -434,7 +514,7 @@ public class questionManipulation extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 System.out.println("fas");
+                
                 new questionManipulation().setVisible(true);
               //  System.out.println("fas");
             }
@@ -447,10 +527,11 @@ public class questionManipulation extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JButton jButtonUpdate2;
-    private javax.swing.JButton jButtonUpdate4;
+    private javax.swing.JComboBox<String> jComboBoxDiff;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -458,6 +539,7 @@ public class questionManipulation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
