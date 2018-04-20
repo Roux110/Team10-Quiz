@@ -1,15 +1,15 @@
 ﻿1, In a database about planets all of the information about Mars would be held on what?, Field, Report, Record, Graph, Record
 2, What do you call a portable computer?, Laptop, Bootop, RAM, Computer, Laptop
-3, The letters WWW stand for what?, Wet Wet Wet, What When Where, Wide, World Web, World Wide Web,  World Wide Web
-4, Which keyboard shortcut will cut a highlighted word?, Ctrl A, Ctrl C, Ctrl Q, Ctrl X,  Ctrl X
-5, Which is not a measure of storage size?, Megabyte, Gigabyte, Terabyte, Kilabyte,  Kilabyte
-6, In most computers how many 'bits' make up a 'byte'?, 8, 9, 32, 36,  8
-7, URL is an abbreviation of 'Uniform Resource Locator'. What does this mean?, An Attachment, A Cookie, A Web Address, A Web Page,  A Web Address
+3, The letters WWW stand for what?, Wet Wet Wet, What When Where, Wide, World Web, World Web
+4, Which keyboard shortcut will cut a highlighted word?, Ctrl A, Ctrl C, Ctrl Q, Ctrl X, Ctrl X
+5, Which is not a measure of storage size?, Megabyte, Gigabyte, Terabyte, Kilabyte, Kilabyte
+6, In most computers how many 'bits' make up a 'byte'?, 8, 9, 32, 36, 8
+7, URL is an abbreviation of 'Uniform Resource Locator'. What does this mean?, An Attachment, A Cookie, A Web Address, A Web Page, A Web Address
 8, Which of these is NOT an 'output' device?, Monitor, Printer, Computer Keyboard, Speakers, Computer Keyboard
-9, Each record on a database has several different what?, Different Fields, Different Yards, Different Graphs, Different Coordinates,  Different Fields
-10, What does 'WiFi' mean?, Wireless Fidelity, Wireless Freedom, Wired Finally, Wicked Fickleness,  Wireless Fidelity
-11, What is a database search called?, A Quest, A Query, An Inquest, An Answer,  A Query
-12, What languages are web pages written in?,  LOGO, HTML, C++, Python,  HTML
+9, Each record on a database has several different what?, Different Fields, Different Yards, Different Graphs, Different Coordinates, Different Fields
+10, What does 'WiFi' mean?, Wireless Fidelity, Wireless Freedom, Wired Finally, Wicked Fickleness, Wireless Fidelity
+11, What is a database search called?, A Quest, A Query, An Inquest, An Answer, A Query
+12, What languages are web pages written in?,  LOGO, HTML, C++, Python, HTML
 13, What kind of ‘base’ system is binary known as?, Base 10, Base 8, Base 2, Base 16, Base 10
-14, What are REAL Anti-Virus software?, Norton, Microsoft, Internet Explore, Mcfee,  Norton
+14, What are REAL Anti-Virus software?, Norton, Microsoft, Internet Explore, Mcfee, Norton
 15, What memory below is the largest?, 1TB, 1GB, 10GB, 550000Bytes, 1TB
