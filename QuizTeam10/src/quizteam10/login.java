@@ -5,6 +5,10 @@
  */
 package quizteam10;
 
+import java.io.File;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author iryna
@@ -27,21 +31,130 @@ public class login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldUsername = new javax.swing.JTextField();
+        jPassword = new javax.swing.JPasswordField();
+        jbtnLogin = new javax.swing.JButton();
+        jbtnCancel = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Username:");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Password:");
+
+        jbtnLogin.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jbtnLogin.setText("Login");
+        jbtnLogin.setActionCommand("btnLogin");
+        jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnLoginActionPerformed(evt);
+            }
+        });
+
+        jbtnCancel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jbtnCancel.setText("Cancel");
+        jbtnCancel.setActionCommand("btnCancel");
+        jbtnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCancelActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel3.setText("Login into the System");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldUsername)
+                            .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnLogin)
+                    .addComponent(jbtnCancel))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLoginActionPerformed
+        String username = jTextFieldUsername.getText();
+        String password = jPassword.getText();
+        String tempUsername = "";
+        String tempPassword = "";
+        boolean found = false;
+
+        try {
+            Scanner x = new Scanner(new File("login.txt"));
+            x.useDelimiter("[,\n]");
+            while(x.hasNext() && !found) {
+                tempUsername = x.next();
+                tempPassword = x.next();
+                if (tempUsername.trim().equals(username.trim()) && tempPassword.trim().equals(password.trim())) {
+                    found = true;
+                }
+
+            }
+            x.close();
+            if(found == true) {
+                dispose();
+                adminMenu adminMenu = new adminMenu();
+                adminMenu.setVisible(true);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Invalid Login Details",
+                    "Login Error", JOptionPane.ERROR_MESSAGE);
+                jTextFieldUsername.setText(null);
+                jPassword.setText(null);
+            }
+        }
+        catch(Exception e) {
+
+        }
+
+    }//GEN-LAST:event_jbtnLoginActionPerformed
+
+    private void jbtnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jbtnCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +192,12 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPassword;
+    private javax.swing.JTextField jTextFieldUsername;
+    private javax.swing.JButton jbtnCancel;
+    private javax.swing.JButton jbtnLogin;
     // End of variables declaration//GEN-END:variables
 }
